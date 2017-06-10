@@ -1,7 +1,7 @@
 {
   "version": 2,
   "targets": {
-    ".NETCoreApp,Version=v1.1": {
+    ".NETCoreApp,Version=v2.0": {
       "Libuv/1.9.1": {
         "type": "package",
         "dependencies": {

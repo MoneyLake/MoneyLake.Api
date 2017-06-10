@@ -7,4 +7,10 @@
     <PackageReference Include="xunit" Version="2.2.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MoneyLake.Api\MoneyLake.Api.csproj">
+      <Project>{be27cf68-c605-4b25-9f5a-b4a240897bdf}</Project>
+      <Name>MoneyLake.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
