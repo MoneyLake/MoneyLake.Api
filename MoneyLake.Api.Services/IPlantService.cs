@@ -1,11 +1,14 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using MoneyLake.Api.DataAccess.DTO;
 
 namespace MoneyLake.Api.Services
 {
     public interface IPlantService
     {
-        IEnumerable GetGreenHouses();
+        Task<IEnumerable<GreenHouse>> GetGreenHousesAsync();
 
-        IEnumerable GetPlansInGreenHouse(int greenHouseId);
+        Task<GreenHouse> GetPlansInGreenHouseAsync(int greenHouseId);
     }
 }

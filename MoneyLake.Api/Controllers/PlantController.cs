@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MoneyLake.Api.Services;
 
@@ -15,9 +16,9 @@ namespace MoneyLake.Api.Controllers
         }
         
         [HttpGet]
-        public IEnumerable Get()
+        public async Task<IEnumerable> Get()
         {
-            return _plantService.GetGreenHouses();
+            return await _plantService.GetGreenHousesAsync();
         }
     }
 }

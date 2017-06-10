@@ -1,17 +1,32 @@
-using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using MoneyLake.Api.DataAccess;
+using MoneyLake.Api.DataAccess.DTO;
 
 namespace MoneyLake.Api.Services.Impl
 {
     internal class PlantService: IPlantService
     {
-        public IEnumerable GetGreenHouses()
+        private readonly DataContext _dataContext;
+        
+        public PlantService(DataContext dataContext)
         {
-            throw new System.NotImplementedException();
+            _dataContext = dataContext;
+        }
+        
+        public async Task<IEnumerable<GreenHouse>> GetGreenHousesAsync()
+        {
+            return await _dataContext
+                .GreenHouses
+                .ToListAsync();
         }
 
-        public IEnumerable GetPlansInGreenHouse(int greenHouseId)
+        public async Task<GreenHouse> GetPlansInGreenHouseAsync(int greenHouseId)
         {
-            throw new System.NotImplementedException();
+            return await _dataContext
+                .GreenHouses
+                .FirstAsync(x => x.Id == greenHouseId);
         }
     }
 }
