@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MoneyLake.Api.DataAccess;
 using MoneyLake.Api.Services.Impl;
 
 namespace MoneyLake.Api.Services
@@ -8,9 +9,15 @@ namespace MoneyLake.Api.Services
         protected override void Load(ContainerBuilder moduleBuilder)
         {
             moduleBuilder
-                .RegisterType<PlantService>()
+                .Register(x => new PlantService(
+                    x.Resolve<DataContext>()))
                 .As<IPlantService>()
                 .InstancePerLifetimeScope();
+
+            moduleBuilder
+                .RegisterType<DataContext>()
+                .As<DataContext>()
+                .SingleInstance();
         }
     }
 }
