@@ -1,4 +1,4 @@
-﻿using Autofac;
+using Autofac;
 using MoneyLake.Api.DataAccess;
 using MoneyLake.Api.Services.Impl;
 
