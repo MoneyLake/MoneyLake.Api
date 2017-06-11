@@ -19,8 +19,7 @@ namespace MoneyLake.Api.Services
                     x.Resolve<DataContext>()))
                 .As<IUserService>()
                 .InstancePerLifetimeScope();
-
-
+           
             moduleBuilder
                 .RegisterType<DataContext>()
                 .As<DataContext>()

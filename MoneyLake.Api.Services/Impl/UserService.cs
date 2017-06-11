@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using MoneyLake.Api.DataAccess;
 using MoneyLake.Api.DataAccess.DTO;
+using MoneyLake.Api.Services.Contants;
+using MoneyLake.Api.Services.Queries;
 
 namespace MoneyLake.Api.Services.Impl
 {
     public class UserService: BaseService, IUserService
     {
-        public UserService(DataContext dataContext): base(dataContext) {}
+        public UserService(DataContext dataContext) : base(dataContext) {}
 
         private static string GetHash(string password)
         {
@@ -46,6 +48,28 @@ namespace MoneyLake.Api.Services.Impl
             return Task.Run(() => PostTime(operationId, statusId, time));
         }
 
+        public Task CreateUserAsync(string login, string password)
+        {
+            return Task.Run(() => CreateUser(login, password));
+        }
+
+        public void CreateUser(string login, string password, string role = "")
+        {
+            var userRole = _dataContext.Roles.GetRoleByName(RoleConstants.User);
+            
+            var user = new User
+            {
+                Login = login,
+                Password = password,
+                IsActive = true,
+                RegisteredDateTime = DateTime.UtcNow,
+                RoleId = userRole.Id
+            };
+
+            _dataContext.Users.Add(user);
+            _dataContext.SaveChanges();
+        }
+
         public User Validate(string login, string password)
         {
             var hash = GetHash(password);
@@ -61,7 +85,7 @@ namespace MoneyLake.Api.Services.Impl
 
             user.LastLogin = DateTime.UtcNow;
             
-            _dataContext.Update(user);
+            _dataContext.Users.Update(user);
             _dataContext.SaveChanges();
 
             return user;
@@ -72,7 +96,7 @@ namespace MoneyLake.Api.Services.Impl
             var users = string.IsNullOrEmpty(login) 
                 ? _dataContext.Users.ToList() 
                 : _dataContext.Users
-                    .Where(x => x.Login.Contains(login))
+                    .FilterByLogin(login)
                     .ToList();
 
             return ClearPassword(users);

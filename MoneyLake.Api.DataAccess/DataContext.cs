@@ -35,7 +35,7 @@ namespace MoneyLake.Api.DataAccess
             modelBuilder
                 .Entity<User>()
                 .HasIndex(x => x.Login);
-            
+
             modelBuilder
                 .Entity<Role>()
                 .ToTable("Roles")

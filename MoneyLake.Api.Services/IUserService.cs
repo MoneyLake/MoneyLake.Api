@@ -18,5 +18,7 @@ namespace MoneyLake.Api.Services
             int operationId, 
             int statusId,
             TimeSpan time);
+
+        Task CreateUserAsync(string login, string password);
     }
 }
