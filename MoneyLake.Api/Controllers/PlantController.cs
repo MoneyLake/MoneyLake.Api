@@ -5,7 +5,7 @@ using MoneyLake.Api.Services;
 
 namespace MoneyLake.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/plants")]
     public class PlantController: Controller
     {
         private readonly IPlantService _plantService;

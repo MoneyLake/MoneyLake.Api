@@ -13,11 +13,18 @@ namespace MoneyLake.Api.Services
                     x.Resolve<DataContext>()))
                 .As<IPlantService>()
                 .InstancePerLifetimeScope();
+            
+            moduleBuilder
+                .Register(x => new UserService(
+                    x.Resolve<DataContext>()))
+                .As<IUserService>()
+                .InstancePerLifetimeScope();
+
 
             moduleBuilder
                 .RegisterType<DataContext>()
                 .As<DataContext>()
-                .SingleInstance();
+                .InstancePerLifetimeScope();
         }
     }
 }

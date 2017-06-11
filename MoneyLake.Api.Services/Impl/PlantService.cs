@@ -6,13 +6,10 @@ using MoneyLake.Api.DataAccess.DTO;
 
 namespace MoneyLake.Api.Services.Impl
 {
-    internal class PlantService: IPlantService
+    internal class PlantService: BaseService, IPlantService
     {
-        private readonly DataContext _dataContext;
-        
-        public PlantService(DataContext dataContext)
+        public PlantService(DataContext dataContext): base(dataContext)
         {
-            _dataContext = dataContext;
         }
         
         public async Task<IEnumerable<GreenHouse>> GetGreenHousesAsync()

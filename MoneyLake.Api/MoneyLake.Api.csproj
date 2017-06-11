@@ -44,10 +44,11 @@
     <None Remove="MoneyLake.Api.Test\**" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MoneyLake.Api.DataAccess\MoneyLake.Api.DataAccess.csproj">
+      <Project>{9587c73c-c5d6-4264-8f1f-faf83665cf57}</Project>
+      <Name>MoneyLake.Api.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MoneyLake.Api.Services\MoneyLake.Api.Services.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MoneyLake.Api.Services\MoneyLake.Api.Services.csproj">
