@@ -9,6 +9,8 @@ Project("{ECD76AC5-8EC5-4670-A647-FF6486D1DDE5}") = "MoneyLake.Api.Test", "Money
 EndProject
 Project("{8C91A574-F471-4898-9801-741686B91DBA}") = "MoneyLake.Api.Services", "MoneyLake.Api.Services\MoneyLake.Api.Services.csproj", "{1EBEC2E8-281E-41A8-AE4F-87740FC02AB1}"
 EndProject
+Project("{6D4C4652-37B2-48AF-8304-C7AD348A91D2}") = "MoneyLake.Api.DataAccess", "MoneyLake.Api.DataAccess\MoneyLake.Api.DataAccess.csproj", "{9587C73C-C5D6-4264-8F1F-FAF83665CF57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1EBEC2E8-281E-41A8-AE4F-87740FC02AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EBEC2E8-281E-41A8-AE4F-87740FC02AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EBEC2E8-281E-41A8-AE4F-87740FC02AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9587C73C-C5D6-4264-8F1F-FAF83665CF57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9587C73C-C5D6-4264-8F1F-FAF83665CF57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9587C73C-C5D6-4264-8F1F-FAF83665CF57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9587C73C-C5D6-4264-8F1F-FAF83665CF57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
