@@ -1,0 +1,12 @@
+language: csharp
+solution: MoneyLake.Api.sln
+mono: none
+dotnet: 1.0.4
+dist: trusty
+install:
+#  - nuget restore MoneyLake.Api.sln
+#  - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+script:
+  - dotnet restore
+  - dotnet build ./MoneyLake.Api
+#  - dotnet ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./MoneyLake.Api.Tests/bin/Debug/netcoreap1.1/MoneyLake.Api.Tests.dll
