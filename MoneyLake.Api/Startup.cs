@@ -33,9 +33,10 @@ namespace MoneyLake.Api
             // Add framework services.
             services.AddMvcCore();
 
+            var connectionString = Configuration.GetConnectionString("MoneyLakeDb");
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule(new ServiceModule());
+            builder.RegisterModule(new ServiceModule(connectionString));
             builder.Populate(services);
 
             ApplicationContainer = builder.Build();

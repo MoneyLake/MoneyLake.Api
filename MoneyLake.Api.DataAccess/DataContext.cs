@@ -5,12 +5,18 @@ namespace MoneyLake.Api.DataAccess
 {
     public class DataContext: DbContext
     {
+        private string ConnectionString{ get; set; }
+
+        public DataContext(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
+
         public DbSet<GreenHouse> GreenHouses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            var connectionString = "Host=fizzy-cherry.db.elephantsql.com;Database=tbqctuyo;Username=tbqctuyo;Password=bsaJa6_79RsMcdghTQ3PS3DZsymEpCdx";
-            builder.UseNpgsql(connectionString);
+            builder.UseNpgsql(ConnectionString);
             base.OnConfiguring(builder);
         }
 
