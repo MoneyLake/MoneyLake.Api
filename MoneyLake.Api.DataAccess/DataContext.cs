@@ -12,10 +12,13 @@ namespace MoneyLake.Api.DataAccess
         public DbSet<Operation> Operations { get; set; }
         public DbSet<OperationStatus> OperationStatuses { get; set; }
         
-        public DataContext(DbContextOptions options) : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
+            const string connectionString = "Host=fizzy-cherry.db.elephantsql.com;Database=tbqctuyo;Username=tbqctuyo;Password=bsaJa6_79RsMcdghTQ3PS3DZsymEpCdx";
+            builder.UseNpgsql(connectionString);
+            base.OnConfiguring(builder);
         }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
