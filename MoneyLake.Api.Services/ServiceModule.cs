@@ -6,6 +6,12 @@ namespace MoneyLake.Api.Services
 {
     public class ServiceModule: Module
     {
+        public string ConnectionString { get; set; }
+        public ServiceModule(string connectionString)
+        {
+            ConnectionString = connectionString;
+        }
+
         protected override void Load(ContainerBuilder moduleBuilder)
         {
             moduleBuilder
@@ -15,7 +21,7 @@ namespace MoneyLake.Api.Services
                 .InstancePerLifetimeScope();
 
             moduleBuilder
-                .RegisterType<DataContext>()
+                .Register(x => new DataContext(ConnectionString))
                 .As<DataContext>()
                 .SingleInstance();
         }
